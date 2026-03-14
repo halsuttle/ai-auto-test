@@ -16,12 +16,32 @@
 
 ## 📋 龙虾列表
 
-| 名称 | App ID | 部署位置 | 状态 |
-|------|--------|----------|------|
-| 星 (主管) | - | 本地 | ✅ 已配置 |
-| ali | cli_a93e826ae5f8dcb0 | 美国 VPS | 🟡 待配置 |
-| copaw nas | cli_a92c7cc7d7789bc8 | NAS | 🟡 待配置 |
-| copaw stary | cli_a92c7b48fc7a9bc6 | 本地 | 🟡 待配置 |
+### Token 分配
+
+| 龙虾 | Token | Git 用户名 | 用途 |
+|------|-------|-----------|------|
+| **星 (主管)** | `ghp_2nhTX...` (已有) | `星` | 主管、任务分配、汇总 |
+| **ali** | `[新 Token]` | `ali` | 海外数据、搜索 |
+| **copaw nas** | `[新 Token]` | `copaw-nas` | 存储、本地计算 |
+| **copaw stary** | `[新 Token]` | `copaw-stary` | 辅助任务 |
+
+### 配置 Git 身份
+
+每个龙虾必须配置自己的 Git 身份，这样提交时才能区分是谁的贡献：
+
+```bash
+# 配置 Git 用户名和邮箱
+git config user.name "龙虾名称"
+git config user.email "龙虾名称@openclaw.local"
+
+# 示例：ali 的配置
+git config user.name "ali"
+git config user.email "ali@openclaw.local"
+
+# 示例：copaw-nas 的配置
+git config user.name "copaw-nas"
+git config user.email "copaw-nas@openclaw.local"
+```
 
 ---
 
@@ -110,10 +130,21 @@ cp -r skills/* ~/.openclaw/skills/
 
 1. 龙虾执行任务
 2. 保存成果到 `data/` 或 `tasks/` 目录
-3. 提交到 GitHub：
+3. 提交到 GitHub（**必须标注身份**）：
    ```bash
+   # 添加文件
    git add .
-   git commit -m "[type] 描述 - by 龙虾名"
+   
+   # 提交（标注是谁的贡献）
+   git commit -m "[类型] 描述 - by 龙虾名"
+   
+   # 示例：ali 提交
+   git commit -m "[data] Add Etsy 数据 - by ali"
+   
+   # 示例：copaw-stary 提交
+   git commit -m "[data] Add 淘宝数据 - by copaw-stary"
+   
+   # 推送
    git push origin main
    ```
 
@@ -152,14 +183,45 @@ YYYY-MM-DD
 
 ### 提交信息规范
 
+**格式**：
 ```bash
-# 格式
 git commit -m "[类型] 描述 - by 龙虾名"
+```
 
-# 示例
-git commit -m "[data] Add 淘宝数据 - by copaw-stary"
+**类型说明**：
+- `[data]` - 数据收集
+- `[skill]` - 技能开发
+- `[doc]` - 文档更新
+- `[task]` - 任务执行
+- `[fix]` - 问题修复
+
+**示例**：
+```bash
+# ali 提交海外数据
+git commit -m "[data] Add Etsy 市场数据 - by ali"
+
+# copaw-stary 提交淘宝数据
+git commit -m "[data] Add 淘宝产品数据 - by copaw-stary"
+
+# copaw-nas 准备存储
+git commit -m "[task] 准备存储空间 - by copaw-nas"
+
+# 星 汇总报告
+git commit -m "[doc] 汇总 3D 打印市场报告 - by 星"
+
+# 添加新技能
 git commit -m "[skill] Add weather-skill - by ali"
-git commit -m "[doc] Update README - by 星"
+```
+
+**查看贡献历史**：
+```bash
+# 查看所有提交
+git log --oneline
+
+# 查看特定龙虾的贡献
+git log --author="ali" --oneline
+git log --author="copaw-stary" --oneline
+git log --author="星" --oneline
 ```
 
 ---
