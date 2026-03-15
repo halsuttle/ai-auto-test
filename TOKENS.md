@@ -69,7 +69,7 @@ cp -r skills/* ~/.openclaw/skills/
 ### �?(主管)
 ```yaml
 github:
-  token: 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
+  token: ghp_***YOUR_TOKEN_HERE***
   repo: halsuttle/ai-auto-test
   user: star-xing
   email: xing@openclaw.local
@@ -78,7 +78,7 @@ github:
 ### ali-bot
 ```yaml
 github:
-  token: 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
+  token: ghp_***YOUR_TOKEN_HERE***
   repo: halsuttle/ai-auto-test
   user: ali-bot
   email: ali@openclaw.local
@@ -87,7 +87,7 @@ github:
 ### copaw-nas
 ```yaml
 github:
-  token: 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
+  token: ghp_***YOUR_TOKEN_HERE***
   repo: halsuttle/ai-auto-test
   user: copaw-nas
   email: nas@openclaw.local
@@ -96,7 +96,7 @@ github:
 ### openclaw_nas
 ```yaml
 github:
-  token: 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
+  token: ghp_***YOUR_TOKEN_HERE***
   repo: halsuttle/ai-auto-test
   user: openclaw_nas
   email: openclaw-nas@openclaw.local
